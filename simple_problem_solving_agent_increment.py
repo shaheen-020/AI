@@ -12,7 +12,7 @@ def formulate_problem(state, goal):
 def search(problem):
     state, goal = problem
     if state < goal:
-        return ()
+        return []
     return ["Increment: "] * (state - goal)
 
 def problem_solving_agent(percept):
@@ -31,5 +31,7 @@ def problem_solving_agent(percept):
     seq = seq[1:]
     return action
 
+
+# PSA : OUTPUT
 for p in range(1, 6):
     print("Percept: ", p, "-> Action is", problem_solving_agent(p))
