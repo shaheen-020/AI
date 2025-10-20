@@ -20,13 +20,14 @@ def uniform_cost_search(graph, start, goal):
 
 
 graph = {
-    'A' : {'B':1,'C':4},
-    'B' : {'A':1,'D':2, 'E':5},
-    'C' : {'A':4,'F':3},
-    'D' : {'B':2},
-    'E' : {'B':5,'F':1},
-    'F' : {'C':3,'E':1}
-}
+    'A' : {'B':1, 'C':4},
+    'B' : {'E':3, 'D':5},
+    'C' : {'F':5},
+    'D' : {'G':2},
+    'E' : {'G':1},
+    'F' : {'G':2},
+    'G': {}
+} 
 cost , path = uniform_cost_search(graph, 'A', 'F')
 print("Path: ", path)
 print("Total cost: ", cost)
