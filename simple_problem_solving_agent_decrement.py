@@ -1,5 +1,4 @@
 # problem solving agent 
-
 seq = []
 state = None
 goal = None
