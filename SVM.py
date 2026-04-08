@@ -1,14 +1,11 @@
-# weights
-w = [1, -1]
-b = 0
+# Simplified hard-margin idea
 
-# input
-x = [2, 3]
+import numpy as np
 
-# dot product
-result = w[0]*x[0] + w[1]*x[1] + b
+w = np.array([1,1])
+b = -3
 
-if result >= 0:
-    print("Class 1")
-else:
-    print("Class 0")
+def predict(x):
+    return 1 if np.dot(w,x)+b >= 0 else 0
+
+print("Prediction:", predict([2,2]))

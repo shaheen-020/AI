@@ -1,18 +1,26 @@
-import math
+#LOGISTIC REGRESSION (Formula - Sigmoid)
+import numpy as np
 
-# weights
-w = 1
-b = -3
+def sigmoid(z):
+    return 1/(1+np.exp(-z))
 
-x = 4
+data = ((1,0),(2,0),(3,1),(4,1))
 
-z = w * x + b
-prob = 1 / (1 + math.exp(-z))
+X = np.array([i[0] for i in data])
+y = np.array([i[1] for i in data])
 
-print("Probability:", prob)
+w = 0
+b = 0
+lr = 0.1
 
-# classification
-if prob >= 0.5:
-    print("Class: 1")
-else:
-    print("Class: 0")
+for _ in range(1000):
+    z = w*X + b
+    y_pred = sigmoid(z)
+    
+    dw = np.mean((y_pred - y)*X)
+    db = np.mean(y_pred - y)
+    
+    w -= lr*dw
+    b -= lr*db
+
+print("Prediction:", sigmoid(w*2.5 + b))
